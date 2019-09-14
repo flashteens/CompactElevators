@@ -1,0 +1,1 @@
+give @p minecraft:green_banner{BlockEntityTag:{Patterns:[{Color:0,Pattern:"mr"},{Color:13,Pattern:"ms"},{Color:13,Pattern:"hhb"}]},display:{Name:"{\"text\":\"Upward Indicator\",\"color\":\"green\"}"}}
