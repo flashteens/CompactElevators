@@ -26,35 +26,23 @@ execute as @a[tag=!FtmcElev2GoUpwardCond,tag=!FtmcElev2GoDownwardCond] at @s run
 tag @a[tag=!tmp_FtmcEv2ValidBanner] remove FtmcElev2OnDnValidBlock
 tag @a remove tmp_FtmcEv2ValidBanner
 
-# Set up teleportation conds
-execute as @a[tag=FtmcElev2OnUpValidBlock,tag=!FtmcElev2GoDownwardCond] at @s if score @s ftelev2_njump > @s ftelev2_njump0 run tag @s add FtmcElev2GoUpwardCond
-execute as @a[tag=FtmcElev2OnDnValidBlock,tag=!FtmcElev2GoUpwardCond] at @s if score @s ftelev2_nsneak > @s ftelev2_nsneak0 run tag @s add FtmcElev2GoDownwardCond
+# Set up the condition to start a teleportation session, and then start the session.
+execute as @a[tag=FtmcElev2OnUpValidBlock,tag=!FtmcElev2GoDownwardCond] at @s if score @s ftelev2_njump > @s ftelev2_njump0 run tag @s add FtmcElev2_tmpReadyToAddGoUpCond
+execute as @a[tag=FtmcElev2OnDnValidBlock,tag=!FtmcElev2GoUpwardCond] at @s if score @s ftelev2_nsneak > @s ftelev2_nsneak0 run tag @s add FtmcElev2_tmpReadyToAddGoDnCond
+tag @a[tag=FtmcElev2_tmpReadyToAddGoUpCond] add FtmcElev2GoUpwardCond
+tag @a[tag=FtmcElev2_tmpReadyToAddGoDnCond] add FtmcElev2GoDownwardCond
+execute as @a[tag=FtmcElev2_tmpReadyToAddGoUpCond] at @s run function ftmc:elevator/v2/open_session
+execute as @a[tag=FtmcElev2_tmpReadyToAddGoDnCond] at @s run function ftmc:elevator/v2/open_session
+tag @a remove FtmcElev2_tmpReadyToAddGoUpCond
+tag @a remove FtmcElev2_tmpReadyToAddGoDnCond
 
-# Reverse teleporting direction when detecting obstacles ahead
-tag @a[tag=FtmcElev2GoUpwardCond] add FtmcElev2UpAlmostBumps
-execute as @a[tag=FtmcElev2GoUpwardCond] at @s if block ~ ~3 ~ #minecraft:impermeable run tag @s remove FtmcElev2UpAlmostBumps
-execute as @a[tag=FtmcElev2GoUpwardCond] at @s if block ~ ~3 ~ #ftmc_elevator:exits run tag @s remove FtmcElev2UpAlmostBumps
-execute as @a[tag=FtmcElev2GoUpwardCond] at @s if block ~ ~2 ~ #ftmc_elevator:exits run tag @s remove FtmcElev2UpAlmostBumps
-
-tag @a[tag=FtmcElev2GoDownwardCond] add FtmcElev2DnAlmostBumps
-execute as @a[tag=FtmcElev2GoDownwardCond] at @s if block ~ ~-1 ~ #minecraft:impermeable run tag @s remove FtmcElev2DnAlmostBumps
-execute as @a[tag=FtmcElev2GoDownwardCond] at @s if block ~ ~-1 ~ #ftmc_elevator:exits run tag @s remove FtmcElev2DnAlmostBumps
-
-tag @a[tag=FtmcElev2UpAlmostBumps] remove FtmcElev2GoUpwardCond
-tag @a[tag=FtmcElev2UpAlmostBumps] add FtmcElev2GoDownwardCond
-tag @a remove FtmcElev2UpAlmostBumps
-
-tag @a[tag=FtmcElev2DnAlmostBumps] remove FtmcElev2GoDownwardCond
-tag @a[tag=FtmcElev2DnAlmostBumps] add FtmcElev2GoUpwardCond
-tag @a remove FtmcElev2DnAlmostBumps
-
-# run a teleportation tick
-execute as @a[tag=FtmcElev2GoUpwardCond] at @s positioned ~ ~ ~ run teleport @s ~ ~1.00 ~
-execute as @a[tag=FtmcElev2GoDownwardCond] at @s positioned ~ ~ ~ run teleport @s ~ ~-0.40 ~
+# Run a teleportation tick for every player who has his corresponding session (armor_stand entity).
+# For those players in the session, their tags FtmcElev2GoUpwardCond and FtmcElev2GoDownwardCond will be overriden before the teleportation is executed.
+function ftmc:elevator/v2/run_sessions
 
 # clear temporary conditional tags
-tag @a[tag=!FtmcElev2OnUpValidBlock] remove FtmcElev2GoUpwardCond
-tag @a[tag=!FtmcElev2OnDnValidBlock] remove FtmcElev2GoDownwardCond
+# tag @a[tag=!FtmcElev2OnUpValidBlock] remove FtmcElev2GoUpwardCond
+# tag @a[tag=!FtmcElev2OnDnValidBlock] remove FtmcElev2GoDownwardCond
 tag @a remove FtmcElev2OnUpValidBlock
 tag @a remove FtmcElev2OnDnValidBlock
 
