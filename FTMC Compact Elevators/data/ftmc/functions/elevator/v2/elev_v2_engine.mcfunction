@@ -27,8 +27,8 @@ tag @a[tag=!tmp_FtmcEv2ValidBanner] remove FtmcElev2OnDnValidBlock
 tag @a remove tmp_FtmcEv2ValidBanner
 
 # Set up the condition to start a teleportation session, and then start the session.
-execute as @a[tag=FtmcElev2OnUpValidBlock,tag=!FtmcElev2GoDownwardCond] at @s if score @s ftelev2_njump > @s ftelev2_njump0 run tag @s add FtmcElev2_tmpReadyToAddGoUpCond
-execute as @a[tag=FtmcElev2OnDnValidBlock,tag=!FtmcElev2GoUpwardCond] at @s if score @s ftelev2_nsneak > @s ftelev2_nsneak0 run tag @s add FtmcElev2_tmpReadyToAddGoDnCond
+execute as @a[tag=FtmcElev2OnUpValidBlock,tag=!FtmcElev2GoUpwardCond,tag=!FtmcElev2GoDownwardCond] at @s if score @s ftelev2_njump > @s ftelev2_njump0 run tag @s add FtmcElev2_tmpReadyToAddGoUpCond
+execute as @a[tag=FtmcElev2OnDnValidBlock,tag=!FtmcElev2GoUpwardCond,tag=!FtmcElev2GoDownwardCond] at @s if score @s ftelev2_nsneak > @s ftelev2_nsneak0 run tag @s add FtmcElev2_tmpReadyToAddGoDnCond
 tag @a[tag=FtmcElev2_tmpReadyToAddGoUpCond] add FtmcElev2GoUpwardCond
 tag @a[tag=FtmcElev2_tmpReadyToAddGoDnCond] add FtmcElev2GoDownwardCond
 execute as @a[tag=FtmcElev2_tmpReadyToAddGoUpCond] at @s run function ftmc:elevator/v2/open_session
