@@ -45,6 +45,7 @@ execute as @a[scores={ftelev2_sessid=1..}] run scoreboard players operation @s f
 
 # Teleport the corresponding player to the armor_stand
 tp @a[scores={ftelev2_sessid=1..,ftelev2_sid_diff=0}] @s
+execute as @a[scores={ftelev2_sessid=1..,ftelev2_sid_diff=0}] run function ftmc:elevator/v2/prevent_damage
 
 # End a session on necessary
 tag @s[tag=!FtmcElev2OnUpValidBlock] remove FtmcElev2GoUpwardCond
@@ -61,4 +62,5 @@ execute if entity @s[tag=FtmcElev2GoDownwardCond] run tag @a[scores={ftelev2_ses
 execute if entity @s[tag=!FtmcElev2GoDownwardCond] run tag @a[scores={ftelev2_sessid=1..,ftelev2_sid_diff=0}] remove FtmcElev2GoDownwardCond
 
 # Kill the session if ended
+execute if entity @s[type=armor_stand,tag=!FtmcElev2GoUpwardCond,tag=!FtmcElev2GoDownwardCond] run execute as @a[scores={ftelev2_sessid=1..,ftelev2_sid_diff=0}] run function ftmc:elevator/v2/stop_prevent_damage
 kill @s[type=armor_stand,tag=!FtmcElev2GoUpwardCond,tag=!FtmcElev2GoDownwardCond]
