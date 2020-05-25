@@ -36,6 +36,10 @@ execute as @a[tag=FtmcElev2_tmpReadyToAddGoDnCond] at @s run function ftmc:eleva
 tag @a remove FtmcElev2_tmpReadyToAddGoUpCond
 tag @a remove FtmcElev2_tmpReadyToAddGoDnCond
 
+# Restore the session for those players who somehow lost the session (ex: due to re-connecting to multiplayer during an elevator ride).
+execute as @a[tag=FtmcElev2GoUpwardCond] at @s run function ftmc:elevator/v2/restore_session
+execute as @a[tag=FtmcElev2GoDownwardCond] at @s run function ftmc:elevator/v2/restore_session
+
 # Run a teleportation tick for every player who has his corresponding session (armor_stand entity).
 # For those players in the session, their tags FtmcElev2GoUpwardCond and FtmcElev2GoDownwardCond will be overriden before the teleportation is executed.
 function ftmc:elevator/v2/run_sessions
