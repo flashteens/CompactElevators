@@ -30,6 +30,9 @@ tag @a remove tmp_FtmcEv2ValidBanner
 execute as @a[tag=FtmcElev2OnUpValidBlock,gamemode=spectator] run tag @s remove FtmcElev2OnUpValidBlock
 execute as @a[tag=FtmcElev2OnDnValidBlock,gamemode=spectator] run tag @s remove FtmcElev2OnDnValidBlock
 
+# [Since 20220801] Refresh the scoreboard value of 'ArrivalFloorY' for custom arrival title implementation
+execute as @a at @s run function ftmc:elevator/v2/refresh_arrival_floor_y
+
 # Set up the condition to start a teleportation session, and then start the session.
 execute as @a[tag=FtmcElev2OnUpValidBlock,tag=!FtmcElev2GoUpwardCond,tag=!FtmcElev2GoDownwardCond] at @s if score @s ftelev2_njump > @s ftelev2_njump0 run tag @s add FtmcElev2_tmpReadyToAddGoUpCond
 execute as @a[tag=FtmcElev2OnDnValidBlock,tag=!FtmcElev2GoUpwardCond,tag=!FtmcElev2GoDownwardCond] at @s if score @s ftelev2_nsneak > @s ftelev2_nsneak0 run tag @s add FtmcElev2_tmpReadyToAddGoDnCond
