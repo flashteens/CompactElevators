@@ -52,7 +52,8 @@ execute as @s[tag=FtmcElev2GoDownwardCond] at @s run function ftmc:elevator/v2/r
 
 # Run a teleportation tick for every player who has his corresponding session (armor_stand entity).
 # For those players in the session, their tags FtmcElev2GoUpwardCond and FtmcElev2GoDownwardCond will be overriden before the teleportation is executed.
-function ftmc:elevator/v2/run_sessions
+#function ftmc:elevator/v2/run_sessions
+# ^ MOVED TO OUTER SCOPE OF elev_v2_engine.mcfunction.
 
 # clear temporary conditional tags
 # tag @s[tag=!FtmcElev2OnUpValidBlock] remove FtmcElev2GoUpwardCond
