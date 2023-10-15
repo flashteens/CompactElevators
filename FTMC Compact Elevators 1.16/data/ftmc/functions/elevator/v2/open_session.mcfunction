@@ -4,7 +4,7 @@
 scoreboard players add #NEXT_FTELEV2SID ftelev2_sessid 1
 
 # Prevent #NEXT_FTELEV2SID.ftelev2_sessid from integer overflow.
-execute if score #NEXT_FTELEV2SID ftelev2_sessid matches 100000001.. run scoreboard players set #NEXT_FTELEV2SID 1
+execute if score #NEXT_FTELEV2SID ftelev2_sessid matches 100000001.. run scoreboard players set #NEXT_FTELEV2SID ftelev2_sessid 1
 
 # Grant the new ID to the player.
 scoreboard players operation @s ftelev2_sessid = #NEXT_FTELEV2SID ftelev2_sessid
