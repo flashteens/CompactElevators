@@ -1,0 +1,5 @@
+give @p minecraft:red_banner[custom_name='{"color":"red","text":"Downward Indicator"}',banner_patterns=[{color: "white", pattern: "minecraft:rhombus"}, {color: "red", pattern: "minecraft:stripe_middle"}, {color: "red", pattern: "minecraft:half_horizontal"}]]
+
+#{BlockEntityTag:{Patterns:[{Color:0,Pattern:"mr"},{Color:14,Pattern:"ms"},{Color:14,Pattern:"hh"}]},display:{Name:"{\"text\":\"Downward Indicator\",\"color\":\"red\"}"}}
+
+#[14:54:08] flashteens has the following entity data: {count: 1, Slot: 6b, components: {"minecraft:custom_name": '{"color":"red","text":"Downward Indicator"}', "minecraft:banner_patterns": [{color: "white", pattern: "minecraft:rhombus"}, {color: "red", pattern: "minecraft:stripe_middle"}, {color: "red", pattern: "minecraft:half_horizontal"}]}, id: "minecraft:red_banner"}

@@ -1,0 +1,4 @@
+{
+	"replace": true,
+	"values": ["minecraft:air", "minecraft:cave_air", "minecraft:void_air","#minecraft:banners","#minecraft:buttons","minecraft:lever","#minecraft:doors","#minecraft:signs","#minecraft:wooden_pressure_plates","minecraft:stone_pressure_plate","minecraft:heavy_weighted_pressure_plate","minecraft:light_weighted_pressure_plate","minecraft:polished_blackstone_pressure_plate"]
+}
