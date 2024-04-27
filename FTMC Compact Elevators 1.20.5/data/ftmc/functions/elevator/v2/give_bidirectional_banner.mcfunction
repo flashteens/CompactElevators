@@ -1,5 +1,1 @@
 give @p minecraft:green_banner[custom_name='{"color":"gold","text":"Bidirectional Indicator"}',banner_patterns=[{color: "red", pattern: "minecraft:gradient_up"}, {color: "white", pattern: "minecraft:rhombus"}, {color: "brown", pattern: "minecraft:stripe_middle"}]]
-
-#{BlockEntityTag:{Patterns:[{Color:14,Pattern:"gru"},{Color:0,Pattern:"mr"},{Color:12,Pattern:"ms"}]},display:{Name:"{\"text\":\"Bidirectional Indicator\",\"color\":\"gold\"}"}}
-
-#[14:55:07] flashteens has the following entity data: {count: 1, Slot: 7b, components: {"minecraft:custom_name": '{"color":"gold","text":"Bidirectional Indicator"}', "minecraft:banner_patterns": [{color: "red", pattern: "minecraft:gradient_up"}, {color: "white", pattern: "minecraft:rhombus"}, {color: "brown", pattern: "minecraft:stripe_middle"}]}, id: "minecraft:green_banner"}
