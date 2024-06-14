@@ -1,0 +1,1 @@
+give @p minecraft:green_banner[custom_name='{"color":"green","text":"Upward Indicator"}',banner_patterns=[{color: "white", pattern: "minecraft:rhombus"}, {color: "green", pattern: "minecraft:stripe_middle"}, {color: "green", pattern: "minecraft:half_horizontal_bottom"}]]
