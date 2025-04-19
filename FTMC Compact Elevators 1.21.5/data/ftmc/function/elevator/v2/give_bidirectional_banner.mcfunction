@@ -1,0 +1,1 @@
+give @p minecraft:green_banner[custom_name=[{"color":"gold","text":"Bidirectional Indicator"}],banner_patterns=[{color: "red", pattern: "minecraft:gradient_up"}, {color: "white", pattern: "minecraft:rhombus"}, {color: "brown", pattern: "minecraft:stripe_middle"}]]

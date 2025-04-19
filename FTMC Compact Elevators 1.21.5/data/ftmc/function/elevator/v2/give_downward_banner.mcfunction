@@ -1,0 +1,1 @@
+give @p minecraft:red_banner[custom_name=[{"color":"red","text":"Downward Indicator"}],banner_patterns=[{color: "white", pattern: "minecraft:rhombus"}, {color: "red", pattern: "minecraft:stripe_middle"}, {color: "red", pattern: "minecraft:half_horizontal"}]]
